@@ -1,0 +1,27 @@
+app:
+  message: Message has been sent Successfully from C
+spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 15672
+    username: guest
+    exchange: user.exchange
+    queueA: user.queueA
+    queueB: user.queueB
+    queueC: user.queueC    
+    routingkeyA: user.routingkeyA
+    routingkeyB: user.routingkeyB
+    routingkeyC: user.routingkeyC  
+server:
+  port: 9093
+
+
+# Next, we will write the application.yml file for the Producer Service. 
+# Here we will specify the configurations required by an application to connect with RabbitMQ.
+# I have installed RabbitMQ on my system and using it with the default configurations. 
+# You can download and install RabbitMQ from here.
+# Refer here to download and install RabbitMQ on your system,
+# If you are familiar with Docker, I suggest using this DockerHub image.
+# The code of the application.yml file with the default configuration is this.
+
