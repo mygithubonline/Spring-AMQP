@@ -6,9 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Service
 public class RabbitMqSender {
     private RabbitTemplate rabbitTemplate;
+
+    private static final Logger logger = LoggerFactory.getLogger(RabbitMqSender.class); 
 
     @Autowired
     public RabbitMqSender(RabbitTemplate rabbitTemplate) {
@@ -23,6 +28,7 @@ public class RabbitMqSender {
 
     public void send(User user){
         rabbitTemplate.convertAndSend(exchange,routingkey, user);
+        logger.info("User Details Sended by C is.. " + user);          
 
     }
 
